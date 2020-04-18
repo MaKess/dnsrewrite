@@ -1,0 +1,11 @@
+[Unit]
+Description=launch the "dnsrewrite" script
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+ExecStart=/usr/local/bin/dnsrewrite --forward-host 192.168.178.1 --listen-port 5300 --listen-host 192.168.23.3 --replace-suffix home.example.net:fritz.box --type-blacklist AAAA
+
+[Install]
+WantedBy=default.target
